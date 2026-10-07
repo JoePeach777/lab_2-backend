@@ -1,0 +1,98 @@
+{
+  "info": {
+    "name": "Lab2 Courses CRUD API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET Все курсы",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/courses"
+      }
+    },
+    {
+      "name": "2. GET Статистика",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/courses/stats"
+      }
+    },
+    {
+      "name": "3. GET Курс по ID",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/courses/1"
+      }
+    },
+    {
+      "name": "4. GET Связанные курсы",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/courses/1/related"
+      }
+    },
+    {
+      "name": "5. POST Создать курс",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Docker и Kubernetes\",\n  \"level\": \"advanced\",\n  \"price\": 40000,\n  \"description\": \"Контейнеризация\"\n}"
+        },
+        "url": "http://localhost:3000/courses"
+      }
+    },
+    {
+      "name": "6. POST Массовое создание (Bulk)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  { \"title\": \"Git с нуля\", \"level\": \"beginner\", \"price\": 5000 },\n  { \"title\": \"Vue.js 3\", \"level\": \"intermediate\", \"price\": 20000 }\n]"
+        },
+        "url": "http://localhost:3000/courses/bulk"
+      }
+    },
+    {
+      "name": "7. PUT Обновить курс",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"JS для Продвинутых\",\n  \"level\": \"advanced\",\n  \"price\": 20000,\n  \"description\": \"Глубокий JS\"\n}"
+        },
+        "url": "http://localhost:3000/courses/1"
+      }
+    },
+    {
+      "name": "8. PATCH Частичное обновление",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 18000\n}"
+        },
+        "url": "http://localhost:3000/courses/1"
+      }
+    },
+    {
+      "name": "9. DELETE Удалить один курс",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/courses/2"
+      }
+    },
+    {
+      "name": "10. Ошибка 404 (Курс не найден)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/courses/999"
+      }
+    }
+  ]
+}
